@@ -5,6 +5,7 @@ import IconButton from 'material-ui/IconButton';
 import ModeEdit from 'material-ui-icons/ModeEdit';
 import TextField from 'material-ui/TextField';
 import grey from 'material-ui/colors/grey';
+import MenuItem from 'material-ui/Menu/MenuItem';
 import Loader from '../Loader';
 import ReportIncident from '../ReportIncidentDialog';
 import RequestSuppliesDialog from '../RequestSuppliesDialog';
@@ -189,10 +190,18 @@ class SiteDetails extends Component {
                             Status
                         </div>
                         <TextField
-                            fullWidth
+                            select
                             value={site.status || ''}
                             onChange={this.onInputChange('status')}
-                        />
+                            fullWidth
+                        >
+                            <MenuItem value="active">
+                                active
+                            </MenuItem>
+                            <MenuItem value="inactive">
+                                inactive
+                            </MenuItem>
+                        </TextField>
                     </div>
                     <div className={classes.buttonsContainer}>
                         <Button
